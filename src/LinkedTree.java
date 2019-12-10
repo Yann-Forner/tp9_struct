@@ -67,4 +67,14 @@ public class LinkedTree<T> implements Tree<T>,Iterable<T>{
         }
         return size;
     }
+
+    public int numberOfLeaf(){
+        BreadthFirstIterator<T> myIterator = this.iterator();
+        int numberOfLeaf = 0;
+        while (myIterator.hasNext()){
+           myIterator.next();
+           if(myIterator.isLeaf())++numberOfLeaf;
+        }
+        return numberOfLeaf;
+    }
 }

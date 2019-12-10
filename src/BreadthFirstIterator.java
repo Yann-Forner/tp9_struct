@@ -3,10 +3,14 @@ import java.util.Iterator;
 
 public class BreadthFirstIterator<T> implements Iterator {
     private ArrayDeque<BinNode<T>> file;
-
+    private boolean isLeaf = false;
     public BreadthFirstIterator(BinNode<T> node) {
         file = new ArrayDeque<>();
         file.offer(node);
+    }
+
+    public boolean isLeaf() {
+        return isLeaf;
     }
 
     @Override
@@ -17,7 +21,8 @@ public class BreadthFirstIterator<T> implements Iterator {
     @Override
     public T next() {
         BinNode<T> temp = file.poll();
-
+        if(temp.getLeftChild() == null && temp.getRightChild() == null)isLeaf = true;
+        else isLeaf = false;
         if(temp.getLeftChild()!= null){
             file.offer(temp.getLeftChild());
         }
