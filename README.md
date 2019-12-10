@@ -1,2 +1,2 @@
 # tp9_struct
-Yann FORNER - Jeremy Gau
+Yann FORNER - Jeremy GAU
